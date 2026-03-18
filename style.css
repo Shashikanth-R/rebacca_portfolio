@@ -235,7 +235,7 @@ img { max-width: 100%; display: block; }
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 900px;
 }
 .hero-label {
   display: inline-block;
@@ -249,8 +249,9 @@ img { max-width: 100%; display: block; }
 }
 .hero-name {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 5.2rem);
+  font-size: clamp(2.5rem, 7vw, 4.8rem);
   color: var(--text-dark);
+  white-space: nowrap;
   line-height: 1.1;
   margin-bottom: 12px;
   opacity: 0; animation: fadeUp .8s .5s var(--ease) forwards;
