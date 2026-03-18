@@ -89,6 +89,7 @@ img { max-width: 100%; display: block; }
   color: var(--text-dark);
   margin-bottom: 16px;
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .section-subtitle {
