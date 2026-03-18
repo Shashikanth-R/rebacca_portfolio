@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- TYPING ANIMATION ---------- */
   const typingEl = document.getElementById('heroTyping');
   const phrases  = [
-    'Specializing in HR & Marketing',
+    'Specialized in HR & Marketing',
     '17+ Years of Academic Excellence',
     'Driving Research & Innovation',
     'Mentoring the Next Generation',
