@@ -132,7 +132,7 @@ img { max-width: 100%; display: block; }
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .nav-logo {
   font-family: var(--font-serif);
