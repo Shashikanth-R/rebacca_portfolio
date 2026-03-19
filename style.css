@@ -1175,6 +1175,6 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 480px) {
   .achieve-grid { grid-template-columns: 1fr; }
-  .hero-name { font-size: 2.2rem; }
+  .hero-name { font-size: 2.2rem; white-space: normal; }
   .about-stats { flex-direction: column; gap: 20px; }
 }
