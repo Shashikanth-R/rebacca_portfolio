@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Send form using EmailJS
       // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with yours
-      emailjs.sendForm('service_v2fkqzq', 'template_5kzktwy', form)
+      emailjs.sendForm('service_2d6ktbc', 'template_5kzktwy', form)
         .then(() => {
           // Success
           document.getElementById('formSuccess').textContent = "Thank you! Your message has been sent successfully.";
