@@ -598,19 +598,19 @@
         <!-- Form -->
         <form class="contact-form reveal" id="contactForm" novalidate>
           <div class="form-group">
-            <input type="text" id="formName" placeholder="Your Name" required />
+            <input type="text" id="formName" name="from_name" placeholder="Your Name" required />
             <span class="form-error">Please enter your name.</span>
           </div>
           <div class="form-group">
-            <input type="email" id="formEmail" placeholder="Your Email" required />
+            <input type="email" id="formEmail" name="from_email" placeholder="Your Email" required />
             <span class="form-error">Please enter a valid email.</span>
           </div>
           <div class="form-group">
-            <input type="text" id="formSubject" placeholder="Subject" required />
+            <input type="text" id="formSubject" name="subject" placeholder="Subject" required />
             <span class="form-error">Please enter a subject.</span>
           </div>
           <div class="form-group">
-            <textarea id="formMessage" placeholder="Your Message" required></textarea>
+            <textarea id="formMessage" name="message" placeholder="Your Message" required></textarea>
             <span class="form-error">Please enter your message.</span>
           </div>
           <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
@@ -641,6 +641,9 @@
       <polyline points="18 15 12 9 6 15" />
     </svg>
   </button>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <script src="script.js"></script>
 </body>

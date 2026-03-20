@@ -193,14 +193,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- CONTACT FORM VALIDATION ---------- */
+  /* ---------- CONTACT FORM HANDLING WITH EMAILJS ---------- */
+  (function() {
+      // https://dashboard.emailjs.com/admin/account
+      // Replace YOUR_PUBLIC_KEY with your own public key
+      emailjs.init("_fLlIcmpmLbOPgUrY");
+  })();
+
   const form = document.getElementById('contactForm');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let valid = true;
 
-    // Name
+    // Inputs
     const name    = document.getElementById('formName');
     const email   = document.getElementById('formEmail');
     const subject = document.getElementById('formSubject');
@@ -209,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reset errors
     form.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
 
+    // Basic Validation
     if (!name.value.trim()) {
       name.closest('.form-group').classList.add('error');
       valid = false;
@@ -227,13 +236,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (valid) {
-      // Show success
-      document.getElementById('formSuccess').classList.add('show');
-      form.reset();
-      // Hide success after 5s
-      setTimeout(() => {
-        document.getElementById('formSuccess').classList.remove('show');
-      }, 5000);
+      // Toggle button state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+
+      // Send form using EmailJS
+      // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with yours
+      emailjs.sendForm('service_v2fkqzq', 'template_5kzktwy', form)
+        .then(() => {
+          // Success
+          document.getElementById('formSuccess').textContent = "Thank you! Your message has been sent successfully.";
+          document.getElementById('formSuccess').classList.add('show');
+          document.getElementById('formSuccess').style.color = "var(--success-color, #22c55e)";
+          form.reset();
+        })
+        .catch((error) => {
+          // Error
+          console.error('EmailJS Error:', error);
+          document.getElementById('formSuccess').textContent = "Oops! Something went wrong. Please try again later.";
+          document.getElementById('formSuccess').classList.add('show');
+          document.getElementById('formSuccess').style.color = "var(--error-color, #ef4444)";
+        })
+        .finally(() => {
+          // Restore button
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          // Hide message after 5s
+          setTimeout(() => {
+            document.getElementById('formSuccess').classList.remove('show');
+          }, 5000);
+        });
     }
   });
 
